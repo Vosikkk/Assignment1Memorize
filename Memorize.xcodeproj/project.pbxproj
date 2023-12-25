@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		383D47242B378239001CA891 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		383D47262B3784AE001CA891 /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
-		3866480D2B3070CF0048D742 /* Assignment1Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment1Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3866480D2B3070CF0048D742 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		386648102B3070CF0048D742 /* Assignment1MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment1MemorizeApp.swift; sourceTree = "<group>"; };
 		386648122B3070CF0048D742 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
 		386648142B3070D10048D742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		386648042B3070CF0048D742 = {
 			isa = PBXGroup;
 			children = (
-				3866480F2B3070CF0048D742 /* Assignment1Memorize */,
+				3866480F2B3070CF0048D742 /* Memorize */,
 				3866480E2B3070CF0048D742 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,12 +49,12 @@
 		3866480E2B3070CF0048D742 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3866480D2B3070CF0048D742 /* Assignment1Memorize.app */,
+				3866480D2B3070CF0048D742 /* Memorize.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3866480F2B3070CF0048D742 /* Assignment1Memorize */ = {
+		3866480F2B3070CF0048D742 /* Memorize */ = {
 			isa = PBXGroup;
 			children = (
 				386648102B3070CF0048D742 /* Assignment1MemorizeApp.swift */,
@@ -65,7 +65,7 @@
 				386648142B3070D10048D742 /* Assets.xcassets */,
 				386648162B3070D10048D742 /* Preview Content */,
 			);
-			path = Assignment1Memorize;
+			path = Memorize;
 			sourceTree = "<group>";
 		};
 		386648162B3070D10048D742 /* Preview Content */ = {
@@ -79,9 +79,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3866480C2B3070CF0048D742 /* Assignment1Memorize */ = {
+		3866480C2B3070CF0048D742 /* Memorize */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3866481B2B3070D10048D742 /* Build configuration list for PBXNativeTarget "Assignment1Memorize" */;
+			buildConfigurationList = 3866481B2B3070D10048D742 /* Build configuration list for PBXNativeTarget "Memorize" */;
 			buildPhases = (
 				386648092B3070CF0048D742 /* Sources */,
 				3866480A2B3070CF0048D742 /* Frameworks */,
@@ -91,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = Assignment1Memorize;
+			name = Memorize;
 			productName = Assignment1Memorize;
-			productReference = 3866480D2B3070CF0048D742 /* Assignment1Memorize.app */;
+			productReference = 3866480D2B3070CF0048D742 /* Memorize.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 386648082B3070CF0048D742 /* Build configuration list for PBXProject "Assignment1Memorize" */;
+			buildConfigurationList = 386648082B3070CF0048D742 /* Build configuration list for PBXProject "Memorize" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3866480C2B3070CF0048D742 /* Assignment1Memorize */,
+				3866480C2B3070CF0048D742 /* Memorize */,
 			);
 		};
 /* End PBXProject section */
@@ -335,7 +335,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		386648082B3070CF0048D742 /* Build configuration list for PBXProject "Assignment1Memorize" */ = {
+		386648082B3070CF0048D742 /* Build configuration list for PBXProject "Memorize" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				386648192B3070D10048D742 /* Debug */,
@@ -344,7 +344,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3866481B2B3070D10048D742 /* Build configuration list for PBXNativeTarget "Assignment1Memorize" */ = {
+		3866481B2B3070D10048D742 /* Build configuration list for PBXNativeTarget "Memorize" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3866481C2B3070D10048D742 /* Debug */,
