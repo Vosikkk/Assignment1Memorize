@@ -12,6 +12,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
     
     private(set) var cards: [Card]
     
+   
+    
     private var matchedIndexes: Int {
         return cards.indices.filter { cards[$0].isFaceUp && cards[$0].isMatched }.count
     }
@@ -49,7 +51,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     score += 2
                 } else {
                     if cards[index].hasAlreadyBeenSeen > 1 || cards[matchedIndex].hasAlreadyBeenSeen > 1 {
-                        score -= 1 // dismatch
+                        score -= 1  // dismatch
                     }
                 }
                 
@@ -71,7 +73,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         cards.shuffle()
     }
     
-    
+  
     struct Card: Identifiable {
         var id = UUID()
         var isFaceUp = false

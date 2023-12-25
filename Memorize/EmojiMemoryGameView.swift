@@ -37,7 +37,7 @@ struct EmojiMemoryGameView: View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
             ForEach(viewModel.cards.indices, id: \.self) { index in
                 let card = viewModel.cards[index]
-                CardView(card: card)
+                CardView(card: card, colorGradient: viewModel.colorOfTheme)
                     .aspectRatio(2/3, contentMode: .fit)
                     .padding(4)
                     .onTapGesture {
@@ -53,6 +53,7 @@ struct EmojiMemoryGameView: View {
 struct CardView: View {
     
     let card: MemoryGame<String>.Card
+    let colorGradient: Color
    
     var body: some View {
         ZStack {
@@ -62,6 +63,7 @@ struct CardView: View {
                     .foregroundStyle(.white)
                 base
                     .strokeBorder(lineWidth: 2)
+                    .fill(colorGradient.gradient)
                 Text(card.content)
                     .font(.system(size: 200))
                     .minimumScaleFactor(0.01)

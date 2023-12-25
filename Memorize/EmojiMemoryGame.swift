@@ -47,7 +47,7 @@ class EmojiMemoryGame: ObservableObject {
     
     init() {
         let randomTheme = themes.randomElement() ?? themes[0]
-        game = MemoryGame(pairsOfCards: min(randomTheme.emojis.count, randomTheme.numbersOfPairs), cardContentFactory: {
+        game = MemoryGame(pairsOfCards: randomTheme.calculatePairs(), cardContentFactory: {
             return randomTheme.emojis[$0]
         })
         currentTheme = randomTheme
@@ -56,13 +56,13 @@ class EmojiMemoryGame: ObservableObject {
     
     func new() {
         let randomTheme = themes.randomElement() ?? themes[0]
-        game = MemoryGame(pairsOfCards: min(randomTheme.emojis.count, randomTheme.numbersOfPairs), cardContentFactory: {
+        game = MemoryGame(pairsOfCards: randomTheme.calculatePairs(), cardContentFactory: {
             return randomTheme.emojis[$0]
         })
         currentTheme = randomTheme
     }
 
-   
+    
     
     // MARK: - Intents
     
@@ -81,8 +81,7 @@ class EmojiMemoryGame: ObservableObject {
        Theme(
         name: "Animals",
         emojis: ["🐶", "🐱", "🐼", "🐸", "🐢", "🐯", "🦁", "🦊", "🦄"],
-        color: "green",
-        numbersOfPairs: 7),
+        color: "green"),
        
        Theme(
         name: "Planets",
@@ -113,7 +112,6 @@ class EmojiMemoryGame: ObservableObject {
         emojis: ["🍎", "🍌", "🍇", "🍊", "🍓", "🍍", "🍑", "🍒", "🍉", "🥝"],
         color: "purple",
         numbersOfPairs: 9),
-       
     ]
     
 }
