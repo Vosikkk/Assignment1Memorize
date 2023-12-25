@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct Assignment1MemorizeApp: App {
+struct MemorizeApp: App {
     
     @StateObject var game = EmojiMemoryGame()
     
