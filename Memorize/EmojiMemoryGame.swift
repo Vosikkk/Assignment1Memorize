@@ -16,6 +16,13 @@ class EmojiMemoryGame: ObservableObject {
         return game.cards
     }
     
+    static func createMemoryGame(theme: Theme) -> MemoryGame<String> {
+        return MemoryGame(pairsOfCards: theme.calculatePairs(), cardContentFactory: {
+            return theme.emojis[$0]
+        })
+    }
+    
+    
     var colorOfTheme: Color {
         switch currentTheme.color {
         case "blue":
@@ -46,24 +53,17 @@ class EmojiMemoryGame: ObservableObject {
     
     
     init() {
-        let randomTheme = themes.randomElement() ?? themes[0]
-        game = MemoryGame(pairsOfCards: randomTheme.calculatePairs(), cardContentFactory: {
-            return randomTheme.emojis[$0]
-        })
-        currentTheme = randomTheme
+        currentTheme = themes.randomElement() ?? themes[0]
+        game = EmojiMemoryGame.createMemoryGame(theme: currentTheme)
     }
     
     
     func new() {
-        let randomTheme = themes.randomElement() ?? themes[0]
-        game = MemoryGame(pairsOfCards: randomTheme.calculatePairs(), cardContentFactory: {
-            return randomTheme.emojis[$0]
-        })
-        currentTheme = randomTheme
+        currentTheme = themes.randomElement() ?? themes[0]
+        game = EmojiMemoryGame.createMemoryGame(theme: currentTheme)
+
     }
 
-    
-    
     // MARK: - Intents
     
     

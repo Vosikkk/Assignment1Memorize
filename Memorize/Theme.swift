@@ -24,6 +24,6 @@ struct Theme {
     
     
     func calculatePairs() -> Int {
-           return min(emojis.count, numbersOfPairs ?? emojis.count)
-       }
+        return min(emojis.count, numbersOfPairs ?? emojis.count)
+    }
 }
