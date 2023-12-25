@@ -1,6 +1,6 @@
 //
-//  Assignment1MemorizeApp.swift
-//  Assignment1Memorize
+//  MemorizeApp.swift
+//  Memorize
 //
 //  Created by Саша Восколович on 18.12.2023.
 //

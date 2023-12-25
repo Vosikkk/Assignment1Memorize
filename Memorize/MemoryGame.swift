@@ -1,6 +1,6 @@
 //
 //  MemoryGame.swift
-//  Assignment1Memorize
+//  Memorize
 //
 //  Created by Саша Восколович on 23.12.2023.
 //
