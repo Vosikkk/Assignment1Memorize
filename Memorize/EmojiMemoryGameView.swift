@@ -15,13 +15,11 @@ struct EmojiMemoryGameView: View {
         VStack {
             HStack {
                 Text("\(viewModel.nameOfTheme)")
-                    .font(.largeTitle)
-                .foregroundStyle(.cyan)
                 Spacer()
                 Text("Score: \(viewModel.score)")
-                    .font(.largeTitle)
-                    .foregroundStyle(.cyan)
             }
+            .font(.largeTitle)
+            .foregroundStyle(.cyan)
             .padding()
             
             ScrollView {
