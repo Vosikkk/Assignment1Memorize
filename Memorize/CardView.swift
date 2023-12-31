@@ -12,11 +12,10 @@ typealias Card = MemoryGame<String>.Card
 struct CardView: View {
     
     let card: Card
-    let colorGradient: Color
     
-    init(_ card: Card, colorGradient: Color) {
+    
+    init(_ card: Card) {
         self.card = card
-        self.colorGradient = colorGradient
     }
    
     var body: some View {
@@ -50,7 +49,7 @@ struct CardView: View {
 
 #Preview {
     HStack {
-        CardView(Card( isFaceUp: true, content: "X"), colorGradient: .red)
-        CardView(Card(content: "X"), colorGradient: .red)
+        CardView(Card( isFaceUp: true, content: "X"))
+        CardView(Card(content: "X"))
     }
 }

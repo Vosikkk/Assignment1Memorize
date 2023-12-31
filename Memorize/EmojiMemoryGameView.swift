@@ -11,6 +11,10 @@ struct EmojiMemoryGameView: View {
     
     @ObservedObject var viewModel: EmojiMemoryGame
     
+    private let aspectRatio: CGFloat = 2/3
+   
+    private let spasing: CGFloat = 4
+    
     var body: some View {
         VStack {
             HStack {
@@ -22,10 +26,10 @@ struct EmojiMemoryGameView: View {
             .foregroundStyle(.cyan)
             .padding()
             
-            ScrollView {
+          //  ScrollView {
                 cards
                     .animation(.default, value: viewModel.cards)
-            }
+          //  }
             Button("New Game") {
                 viewModel.new()
             }
@@ -35,18 +39,29 @@ struct EmojiMemoryGameView: View {
     }
     
     var cards: some View {
-        LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
-            ForEach(viewModel.cards) { card in
-                CardView(card, colorGradient: viewModel.colorOfTheme)
-                    .aspectRatio(2/3, contentMode: .fit)
-                    .padding(4)
-                    .onTapGesture {
-                        viewModel.choose(card)
-                    }
-            }
+       
+        AspectVGrid(viewModel.cards, aspectRatio: aspectRatio) { card in
+            CardView(card)
+                .padding(spasing)
+                .onTapGesture {
+                    viewModel.choose(card)
+                }
         }
-        .foregroundStyle(viewModel.colorOfTheme)
-    }
+        
+        /// If we want to work with scroll, and have the same size for each card
+//            LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
+//                ForEach(viewModel.cards) { card in
+//                    CardView(card, colorGradient: viewModel.colorOfTheme)
+//                        .aspectRatio(aspectRatio, contentMode: .fit)
+//                        .padding(spasing)
+//                        .onTapGesture {
+//                            viewModel.choose(card)
+//                        }
+//                }
+//            }
+            .foregroundStyle(viewModel.colorOfTheme)
+        }
+    
 }
 
 #Preview {

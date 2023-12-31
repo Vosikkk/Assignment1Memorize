@@ -12,7 +12,7 @@ class EmojiMemoryGame: ObservableObject {
     
     @Published private var game: MemoryGame<String>
     
-    var cards: [MemoryGame<String>.Card] {
+    var cards: [Card] {
         return game.cards
     }
     
@@ -71,7 +71,7 @@ class EmojiMemoryGame: ObservableObject {
         game.shuffle()
     }
     
-    func choose(_ card: MemoryGame<String>.Card) {
+    func choose(_ card: Card) {
         game.choose(card)
     }
     

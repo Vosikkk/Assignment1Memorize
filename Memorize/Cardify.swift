@@ -11,7 +11,7 @@ import SwiftUI
 struct Cardify: ViewModifier {
     
     let isFaceUp: Bool
-    
+        
     func body(content: Content) -> some View {
         ZStack {
             let base = RoundedRectangle(cornerRadius: Constants.cornerRadius)
