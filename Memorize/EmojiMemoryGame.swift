@@ -13,7 +13,7 @@ class EmojiMemoryGame: ObservableObject {
     @Published private var game: MemoryGame<String>
     
     var cards: [Card] {
-        return game.cards
+        game.cards
     }
     
     static func createMemoryGame(theme: Theme) -> MemoryGame<String> {
@@ -42,11 +42,11 @@ class EmojiMemoryGame: ObservableObject {
     }
     
     var score: Int {
-        return game.score
+        game.score
     }
     
     var nameOfTheme: String {
-        return currentTheme.name
+        currentTheme.name
     }
     
     private var currentTheme: Theme
