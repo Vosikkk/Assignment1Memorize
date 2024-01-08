@@ -14,6 +14,7 @@
 		386648152B3070D10048D742 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386648142B3070D10048D742 /* Assets.xcassets */; };
 		386648182B3070D10048D742 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 386648172B3070D10048D742 /* Preview Assets.xcassets */; };
 		3866481F2B307C420048D742 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3866481E2B307C420048D742 /* Theme.swift */; };
+		38C5CC212B4CB3D000B69B38 /* FlyingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C5CC202B4CB3D000B69B38 /* FlyingNumber.swift */; };
 		38E4BEBA2B42123A00F6D1D4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E4BEB92B42123A00F6D1D4 /* CardView.swift */; };
 		38E4BEBC2B42133800F6D1D4 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E4BEBB2B42133800F6D1D4 /* Pie.swift */; };
 		38E4BEBE2B42155F00F6D1D4 /* Cardify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E4BEBD2B42155F00F6D1D4 /* Cardify.swift */; };
@@ -29,6 +30,7 @@
 		386648142B3070D10048D742 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		386648172B3070D10048D742 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3866481E2B307C420048D742 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		38C5CC202B4CB3D000B69B38 /* FlyingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyingNumber.swift; sourceTree = "<group>"; };
 		38E4BEB92B42123A00F6D1D4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		38E4BEBB2B42133800F6D1D4 /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		38E4BEBD2B42155F00F6D1D4 /* Cardify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cardify.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				38E4BEBF2B42213400F6D1D4 /* AspectVGrid.swift */,
 				38E4BEB92B42123A00F6D1D4 /* CardView.swift */,
 				38E4BEBD2B42155F00F6D1D4 /* Cardify.swift */,
+				38C5CC202B4CB3D000B69B38 /* FlyingNumber.swift */,
 				38E4BEBB2B42133800F6D1D4 /* Pie.swift */,
 				383D47242B378239001CA891 /* MemoryGame.swift */,
 				383D47262B3784AE001CA891 /* EmojiMemoryGame.swift */,
@@ -167,6 +170,7 @@
 				38E4BEBA2B42123A00F6D1D4 /* CardView.swift in Sources */,
 				383D47272B3784AE001CA891 /* EmojiMemoryGame.swift in Sources */,
 				38E4BEC02B42213400F6D1D4 /* AspectVGrid.swift in Sources */,
+				38C5CC212B4CB3D000B69B38 /* FlyingNumber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
