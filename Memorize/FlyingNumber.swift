@@ -37,13 +37,12 @@ struct FlyingNumber: View {
         }
     }
     
-    
     private struct Constants {
-        
         static let shadowRadius: CGFloat = 1.5
         static let positionX: CGFloat = 1
         static let positionY: CGFloat = 1
-         struct Offset {
+         
+        struct Offset {
             static let moveUp: CGFloat = -200
             static let moveDown: CGFloat = 200
         }
