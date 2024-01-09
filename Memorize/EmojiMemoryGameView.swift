@@ -11,10 +11,13 @@ struct EmojiMemoryGameView: View {
     
     @ObservedObject var viewModel: EmojiMemoryGame
     
-    private let aspectRatio: CGFloat = 2/3
-   
-    private let spasing: CGFloat = 4
+    @State private var dealt: Set<Card.ID> = []
     
+    @State private var lastScoreChange = (0, cousedByCardId: UUID())
+    
+    @Namespace private var dealingNamesSpace
+    
+   
     var body: some View {
         VStack {
             HStack {
@@ -28,24 +31,56 @@ struct EmojiMemoryGameView: View {
             
             cards
                 .foregroundStyle(viewModel.colorOfTheme)
-            
-            newGame
-                .font(.title)
+            HStack {
+                newGame
+                    .font(.title)
+                Spacer()
+                deck
+                    .foregroundStyle(viewModel.colorOfTheme)
+            }
         }
         .padding()
     }
     
+    
+    // MARK: - Support views
+    
     private var cards: some View {
-        AspectVGrid(viewModel.cards, aspectRatio: aspectRatio) { card in
-            CardView(card)
-                .padding(spasing)
-                .onTapGesture {
-                    withAnimation {
-                        viewModel.choose(card)
+        AspectVGrid(viewModel.cards, aspectRatio: Constants.aspectRatio) { card in
+            if isDealt(card) {
+                view(for: card)
+                    .padding(Constants.spacing)
+                    .overlay(FlyingNumber(number: scoreChange(causedBy: card)))
+                
+                // we want that numbers appear always in front
+                    .zIndex(scoreChange(causedBy: card) != 0 ? 1 : 0)
+                    .onTapGesture {
+                        choose(card)
                     }
-                }
+            }
         }
     }
+    
+    private var deck: some View {
+        ZStack {
+            ForEach(undealtCards) { card in
+                    CardView(card)
+                    .matchedGeometryEffect(id: card.id, in: dealingNamesSpace)
+                    .transition(.asymmetric(insertion: .identity, removal: .identity))
+            }
+        }
+        .frame(width: Constants.CardsSize.width, height: Constants.CardsSize.width / Constants.aspectRatio)
+        .onTapGesture {
+            deal()
+        }
+    }
+    
+    private func view(for card: Card) -> some View {
+        CardView(card)
+            .matchedGeometryEffect(id: card.id, in: dealingNamesSpace)
+            .transition(.asymmetric(insertion: .identity, removal: .identity))
+    }
+    
     
     private var newGame: some View {
         Button("New Game") {
@@ -62,6 +97,59 @@ struct EmojiMemoryGameView: View {
     
     private var nameOfTheme: some View {
         Text("\(viewModel.nameOfTheme)")
+    }
+    
+    
+    
+    // MARK: - Logic for views
+    
+    private func deal() {
+        var delay: TimeInterval = 0
+        
+        for card in viewModel.cards {
+            withAnimation(.easeInOut(duration: Constants.Animation.duration).delay(delay)) {
+                _ = dealt.insert(card.id)
+            }
+            delay += Constants.Animation.delay
+        }
+    }
+    
+    
+    private var undealtCards: [Card] {
+        viewModel.cards.filter { !isDealt($0) }
+    }
+    
+    private func scoreChange(causedBy card: Card) -> Int {
+        let (amount, id) = lastScoreChange
+        return card.id == id ? amount : 0
+    }
+    
+    private func choose(_ card: Card) {
+        withAnimation {
+            let scoreBeforeChange = viewModel.score
+            viewModel.choose(card)
+            let scoreChange = viewModel.score - scoreBeforeChange
+            lastScoreChange = (scoreChange, card.id)
+        }
+    }
+    
+    private func isDealt(_ card: Card) -> Bool {
+        dealt.contains(card.id)
+    }
+    
+    
+    private struct Constants {
+        static let aspectRatio: CGFloat = 2/3
+        static let spacing: CGFloat = 4
+        
+        struct CardsSize {
+            static let width: CGFloat = 50
+        }
+        
+        struct Animation {
+            static let delay: TimeInterval = 0.15
+            static let duration: CGFloat = 1
+        }
     }
     
 }

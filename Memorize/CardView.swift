@@ -19,24 +19,36 @@ struct CardView: View {
     }
    
     var body: some View {
-        Pie(endAngle: .degrees(240))
-            .opacity(Constants.Pie.opacity)
-            .overlay(
-                Text(card.content)
-                    .font(.system(size: Constants.FontSize.largest))
-                    .minimumScaleFactor(Constants.FontSize.scaleFactor)
-                    .aspectRatio(1, contentMode: .fit)
+        TimelineView(.animation) { timeline in
+            if card.isFaceUp || !card.isMatched {
+                Pie(endAngle: .degrees(card.bonusPercentRemaining * Constants.Animation.degrees))
+                    .opacity(Constants.Pie.opacity)
+                    .overlay(cardContents.padding(Constants.Pie.inset))
                     .padding(Constants.inset)
-                    .rotationEffect(.degrees(card.isMatched ? 360 : 0))
-                    .animation(.spin(duration: 1), value: card.isMatched)
-            )
-            .padding(Constants.inset)
-            .cardify(isFaceUp: card.isFaceUp)
-        .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+                    .cardify(isFaceUp: card.isFaceUp)
+                    .transition(.scale)
+            } else {
+                Color.clear
+            }
+        }
     }
     
+    
+    var cardContents: some View {
+        Text(card.content)
+            .font(.system(size: Constants.FontSize.largest))
+            .minimumScaleFactor(Constants.FontSize.scaleFactor)
+            .aspectRatio(Constants.aspectRatio, contentMode: .fit)
+            .rotationEffect(.degrees(card.isMatched ? Constants.Animation.degrees : 0))
+            .animation(.spin(duration: Constants.Animation.duration), value: card.isMatched)
+    }
+    
+    
     private struct Constants {
+        
         static let inset: CGFloat = 5
+        static let aspectRatio: CGFloat = 1
+        
         struct FontSize {
             static let largest: CGFloat = 200
             static let smallest: CGFloat = 10
@@ -45,6 +57,11 @@ struct CardView: View {
         struct Pie {
             static let opacity: CGFloat = 0.5
             static let inset: CGFloat = 5
+        }
+        
+        struct Animation {
+            static let degrees: CGFloat = 360
+            static let duration: CGFloat = 1
         }
     }
 }

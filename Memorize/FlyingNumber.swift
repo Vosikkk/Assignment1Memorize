@@ -27,7 +27,7 @@ struct FlyingNumber: View {
             // Change in movement
                 .opacity(offset != 0 ? 0 : 1)
                 .onAppear {
-                    withAnimation(.easeInOut(duration: 1)) {
+                    withAnimation(.easeInOut(duration: Constants.Animation.duration)) {
                         offset = number < 0 ? Constants.Offset.moveDown : Constants.Offset.moveUp
                     }
                 }
@@ -45,6 +45,9 @@ struct FlyingNumber: View {
         struct Offset {
             static let moveUp: CGFloat = -200
             static let moveDown: CGFloat = 200
+        }
+        struct Animation {
+            static let duration: CGFloat = 1.6
         }
     }
 }
