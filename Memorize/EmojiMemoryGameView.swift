@@ -64,9 +64,7 @@ struct EmojiMemoryGameView: View {
     private var deck: some View {
         ZStack {
             ForEach(undealtCards) { card in
-                    CardView(card)
-                    .matchedGeometryEffect(id: card.id, in: dealingNamesSpace)
-                    .transition(.asymmetric(insertion: .identity, removal: .identity))
+                    view(for: card)
             }
         }
         .frame(width: Constants.CardsSize.width, height: Constants.CardsSize.width / Constants.aspectRatio)
